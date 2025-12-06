@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "805499766700",
+    "project_id": "codely-a9225",
+    "storage_bucket": "codely-a9225.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805499766700:android:a4a1fd7a3f8f7307325c09",
+        "android_client_info": {
+          "package_name": "com.codely"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrzVgHY2RTAD6EM2BxZ4uv1nd-U04HaYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
