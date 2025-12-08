@@ -2301,6 +2301,15 @@
   dependencies:
     nanoid "^3.3.11"
 
+"@react-navigation/stack@^7.6.11":
+  version "7.6.11"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-7.6.11.tgz#1e9811387575fcd270b6e88ca4ecc6e18e14f081"
+  integrity sha512-jhLoXmmdeSv6MSYTgOTGaVnDNHrhcknO+AwaUdscle4yCavEsa+0maS8yI5HsOKWoT0zjVrvNfRofPXsz3i2cg==
+  dependencies:
+    "@react-navigation/elements" "^2.9.1"
+    color "^4.2.3"
+    use-latest-callback "^0.2.4"
+
 "@reduxjs/toolkit@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-2.11.0.tgz#71930f79d22d37bcc779ec424b393ceb07c8fd07"
@@ -6157,6 +6166,11 @@ react-native-gesture-handler@^2.29.1:
     "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
+
+react-native-linear-gradient@^2.8.3:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz#9a116649f86d74747304ee13db325e20b21e564f"
+  integrity sha512-KflAXZcEg54PXkLyflaSZQ3PJp4uC4whM7nT/Uot9m0e/qxFV3p6uor1983D1YOBJbJN7rrWdqIjq0T42jOJyA==
 
 react-native-safe-area-context@^5.6.2:
   version "5.6.2"
