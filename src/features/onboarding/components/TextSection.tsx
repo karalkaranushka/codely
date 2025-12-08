@@ -22,16 +22,17 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   title: {
-    fontSize: ONBOARDING_TYPO.title,
+    fontSize: 26,
     fontWeight: "700",
     color: ONBOARDING_COLORS.primaryText,
     textAlign: "center",
   },
   subtitle: {
-    fontSize: ONBOARDING_TYPO.subtitle,
+    fontSize: 18,
     color: ONBOARDING_COLORS.secondaryText,
+    paddingHorizontal: 32,
     textAlign: "center",
-    lineHeight: 22,
+    lineHeight: 24,
   },
 });
 

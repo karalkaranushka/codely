@@ -15,10 +15,10 @@ const OnboardingScreen: React.FC = () => {
   return (
     <OnboardingLayout>
       <SkipButton onPress={handleSkip} />
-
+      <View style={{ flex: 0.2 }} />
       <CodeCards />
 
-      <View style={{ flex: 0.8 }} />
+      <View style={{ flex: 0.4 }} />
 
       <TextSection title={current.title} subtitle={current.subtitle} />
 

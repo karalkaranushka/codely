@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { View, Text, StyleSheet, Animated, Easing } from "react-native";
+import { View, Text, StyleSheet, Animated, Easing, Platform } from "react-native";
 import { ONBOARDING_COLORS, ONBOARDING_RADIUS } from "../theme";
 import { ONBOARDING_STRINGS } from "../constant";
 
@@ -35,7 +35,10 @@ const FloatingCard: React.FC<FloatingCardProps> = ({ val, style, children }) => 
 
   const scaleAnim = Animated.multiply(
     press,
-    val.interpolate({ inputRange: [0, 0.5, 1], outputRange: [1, 1.03, 1] })
+    val.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: [1, 1.03, 1],
+    })
   );
 
   return (
@@ -45,7 +48,7 @@ const FloatingCard: React.FC<FloatingCardProps> = ({ val, style, children }) => 
         {
           opacity: val.interpolate({
             inputRange: [0, 0.5, 1],
-            outputRange: [0.92, 1, 0.96],
+            outputRange: [0.9, 1, 0.95],
           }),
           transform: [
             {
@@ -57,13 +60,13 @@ const FloatingCard: React.FC<FloatingCardProps> = ({ val, style, children }) => 
             {
               translateX: val.interpolate({
                 inputRange: [0, 0.5, 1],
-                outputRange: [0, 3, 0],
+                outputRange: [0, 6, 0],
               }),
             },
             {
               rotate: val.interpolate({
                 inputRange: [0, 0.5, 1],
-                outputRange: ["-10deg", "0deg", "10deg"],
+                outputRange: ["-6deg", "0deg", "6deg"],
               }),
             },
             { scale: scaleAnim },
@@ -110,65 +113,79 @@ const CodeCards = () => {
 
   return (
     <View style={styles.container}>
-      <FloatingCard val={left} style={[styles.card, styles.react]}>
+      {/* top left */}
+      <FloatingCard val={left} style={[styles.card, styles.topLeft]}>
         <Text style={styles.title}>{ONBOARDING_STRINGS.reactNativeTitle}</Text>
         <Text style={styles.sub}>{ONBOARDING_STRINGS.reactNativeSubtitle}</Text>
       </FloatingCard>
 
+      {/* top right */}
       <FloatingCard val={right} style={[styles.card, styles.topRight]}>
         <Text style={styles.title}>{ONBOARDING_STRINGS.lightningSetupTitle}</Text>
         <Text style={styles.sub}>{ONBOARDING_STRINGS.lightningSetupSubtitle}</Text>
       </FloatingCard>
 
-      <FloatingCard val={left} style={[styles.card, styles.center]}>
+      {/* bottom / center */}
+      <FloatingCard val={left} style={[styles.card, styles.bottomCenter]}>
         <Text style={styles.title}>{ONBOARDING_STRINGS.nodeJsTitle}</Text>
         <Text style={styles.sub}>{ONBOARDING_STRINGS.nodeJsSubtitle}</Text>
       </FloatingCard>
 
-      <FloatingCard val={right} style={[styles.card, styles.bottomRight]}>
+      {/* bottom right */}
+      {/* <FloatingCard val={right} style={[styles.card, styles.bottomRight]}>
         <Text style={styles.title}>{ONBOARDING_STRINGS.versionControlTitle}</Text>
         <Text style={styles.sub}>{ONBOARDING_STRINGS.versionControlSubtitle}</Text>
-      </FloatingCard>
+      </FloatingCard> */}
     </View>
   );
 };
 
-const CARD_WIDTH = 180;
+const CARD_WIDTH = 160;
+
+const CODE_FONT = Platform.select({
+  ios: "Menlo",
+  android: "monospace",
+  default: "System",
+});
 
 const styles = StyleSheet.create({
   container: {
+    height: 340,
     justifyContent: "center",
   },
   card: {
     position: "absolute",
     width: CARD_WIDTH,
-    paddingVertical: 18,
-    paddingHorizontal: 18,
-    borderRadius: ONBOARDING_RADIUS.card,
-    backgroundColor: ONBOARDING_COLORS.cardBgChip,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    borderRadius: ONBOARDING_RADIUS.card ?? 22, // more pill-y like screenshot
+    backgroundColor: "#334a82ff", // deep navy
     borderWidth: 1,
-    borderColor: ONBOARDING_COLORS.cardBorder,
-    shadowColor: "#000",
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 8 },
-    elevation: 8,
+    borderColor: "rgba(134,184,255,0.90)", // soft blue border
+    shadowColor: "#202953ff", // strong bottom glow
+    shadowOpacity: 0.9,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 20 },
+    elevation: 18,
   },
-  react: { left: 24, top: 40 },
-  topRight: { right: 24, top: 120 },
-  center: { top: 225, left: "12%" },
-  bottomRight: { right: 32, top: 320 },
+  topLeft: { left: 30, top: 28 },
+  topRight: { right: 28, top: 135 },
+  bottomCenter: { left: 40, top: 245 },
+  bottomRight: { right: 24, top: 290 },
   title: {
-    fontSize: 16,
-    fontWeight: "700",
-    color: "#FFF",
+    fontSize: 13,
+    fontWeight: "400",
+    color: "#F7FAFF",
     letterSpacing: 0.3,
+    fontFamily: CODE_FONT, // code look
   },
   sub: {
     marginTop: 4,
-    fontSize: 11,
-    opacity: 0.85,
-    color: "#C8CEDA",
+    fontSize: 13,
+    color: "#F7FAFF",
+    opacity: 0.8,
+    letterSpacing: 0.3,
+    fontFamily: CODE_FONT,
   },
 });
 

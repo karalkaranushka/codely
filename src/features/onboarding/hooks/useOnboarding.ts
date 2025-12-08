@@ -1,8 +1,10 @@
 import { useState } from "react";
 import type { OnboardingPage } from "../types";
 import { ONBOARDING_STRINGS } from "../constant";
+import { useAppNavigation } from "../../../navigation/useAppNavigation";
 
 export const useOnboarding = () => {
+  const { goToAuth } = useAppNavigation();
   const pages: OnboardingPage[] = [
     {
       id: "stay-updated",
@@ -16,11 +18,12 @@ export const useOnboarding = () => {
   const current = pages[index];
 
   const handleNext = () => {
-    if (index < pages.length - 1) {
-      setIndex((prev) => prev + 1);
-    } else {
-      console.log("Onboarding finished");
-    }
+    goToAuth("PhoneLogin");
+    // if (index < pages.length - 1) {
+    //   setIndex((prev) => prev + 1);
+    // } else {
+    //   console.log("Onboarding finished");
+    // }
   };
 
   const handleSkip = () => {
