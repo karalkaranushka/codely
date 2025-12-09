@@ -46,9 +46,9 @@ export const GlassTabBar: React.FC<GlassTabBarProps> = ({
           {state.routes.map((route, index) => {
             const { options } = descriptors[route.key];
             const label =
-              options.tabBarLabel ??
-              options.title ??
-              (route.name as string);
+              typeof options.tabBarLabel === 'string'
+                ? options.tabBarLabel
+                : options.title ?? (route.name as string);
 
             const isFocused = state.index === index;
 
@@ -78,3 +78,83 @@ export const GlassTabBar: React.FC<GlassTabBarProps> = ({
                 style={styles.tabItem}
                 activeOpacity={0.85}
               >
+                <View style={styles.tabContent}>
+                  {showActiveDot && isFocused && (
+                    <View style={styles.activeDot} />
+                  )}
+                  {showLabels && (
+                    <Text
+                      style={[
+                        styles.label,
+                        isFocused && styles.labelFocused,
+                      ]}
+                    >
+                      {label}
+                    </Text>
+                  )}
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+        </SafeAreaView>
+      </BlurView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  wrapper: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  androidWrapper: {
+    elevation: 8,
+  },
+  iosWrapper: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  blurContainer: {
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    overflow: "hidden",
+  },
+  innerContainer: {
+    flexDirection: "row",
+    paddingBottom: 8,
+    paddingTop: 12,
+  },
+  tabItem: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 8,
+  },
+  tabContent: {
+    alignItems: "center",
+  },
+  activeDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "#60A5FA",
+    marginBottom: 4,
+  },
+  label: {
+    fontSize: 12,
+    fontWeight: "500",
+    color: "#9CA3AF",
+  },
+  labelFocused: {
+    color: "#FFFFFF",
+  },
+});
+
+export default GlassTabBar;
