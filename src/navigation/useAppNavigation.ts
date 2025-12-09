@@ -4,6 +4,7 @@ import type {
   RootStackParamList,
   AuthStackParamList,
   MainStackParamList,
+  PreferencesStackParamList,
 } from "./types";
 import { ROOT_ROUTES } from "./routes";
 
@@ -27,6 +28,16 @@ export const useAppNavigation = () => {
       screen,
       params,
     });
+  };
+
+  const goToPreferences = <T extends keyof PreferencesStackParamList>(
+    screen: T,
+    params?: PreferencesStackParamList[T]
+  ) => {
+    navigation.navigate(ROOT_ROUTES.PreferencesStack as any, {
+      screen,
+      params,
+    } as any);
   };
 
   const goToMain = <T extends keyof MainStackParamList>(
@@ -90,5 +101,6 @@ export const useAppNavigation = () => {
     resetToOnboarding,
     resetToAuth,
     resetToMain,
+    goToPreferences
   };
 };

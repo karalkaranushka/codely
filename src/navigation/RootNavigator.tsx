@@ -1,4 +1,3 @@
-// src/navigation/RootNavigator.tsx
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -7,6 +6,7 @@ import { ROOT_ROUTES } from "./routes";
 import OnboardingScreen from "../features/onboarding/screens/OnboardingScreen";
 import AuthNavigator from "./AuthNavigator";
 import MainNavigator from "./MainNavigator";
+import PreferencesNavigator from "./PreferencesNavigator";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -23,6 +23,10 @@ const RootNavigator: React.FC = () => {
           component={OnboardingScreen}
         />
         <Stack.Screen name={ROOT_ROUTES.AuthStack} component={AuthNavigator} />
+        <Stack.Screen
+          name={ROOT_ROUTES.PreferencesStack}
+          component={PreferencesNavigator}
+        />
         <Stack.Screen name={ROOT_ROUTES.MainStack} component={MainNavigator} />
       </Stack.Navigator>
     </NavigationContainer>

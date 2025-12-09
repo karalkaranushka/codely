@@ -1,4 +1,3 @@
-// src/features/onboarding/constants/theme.ts
 export const ONBOARDING_COLORS = {
   screenBg: "#020815",
   cardBg: "#030918",
@@ -22,6 +21,8 @@ export const ONBOARDING_RADIUS = {
 
 export const ONBOARDING_SPACING = {
   screenPadding: 24,
+  lg: 32,
+  md: 20,
 };
 
 export const ONBOARDING_TYPO = {

@@ -1,4 +1,3 @@
-// src/features/onboarding/components/PaginationDots.tsx
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { ONBOARDING_COLORS } from "../theme";

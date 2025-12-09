@@ -1,4 +1,3 @@
-// src/features/auth/constants/theme.ts
 export const AUTH_COLORS = {
   screenBg: "#020815",
   cardBg: "#030918",

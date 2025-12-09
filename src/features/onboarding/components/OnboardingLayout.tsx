@@ -109,7 +109,6 @@ const ParticleBackground: React.FC = () => {
   );
 };
 
-// ---------- LAYOUT ----------
 const OnboardingLayout: React.FC<Props> = ({ children }) => {
   return (
     <SafeAreaView style={styles.safe}>
