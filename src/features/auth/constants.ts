@@ -1,0 +1,18 @@
+export const AUTH_STRINGS = {
+  appName: "CODELY",
+  subtitle: "Developer Updates Platform",
+  phonePlaceholder: "Phone number",
+  countryCode: "+91",
+  sendOtp: "Send OTP",
+  dividerText: "or continue with",
+  github: "GitHub",
+  google: "Google",
+  termsPrefix: "By continuing, you agree to our ",
+  termsHighlight: "Terms & Privacy Policy",
+  verifyTitle: "Enter verification code",
+  verifySubtitle: "We sent a code to",
+  verifyCta: "Verify & Continue",
+  didntReceive: "Didn't receive code?",
+  resendOtp: "Resend OTP",
+  changePhoneNumber: "Change phone number",
+};
