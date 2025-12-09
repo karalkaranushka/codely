@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useAppNavigation } from "../../../navigation/useAppNavigation";
 
 export const useVerifyOtp = () => {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { goToPreferences } = useAppNavigation();
 
   const isValidCode = code.length === 6;
 
@@ -13,6 +16,8 @@ export const useVerifyOtp = () => {
     setTimeout(() => {
       setLoading(false);
       console.log("OTP verified:", code);
+
+      goToPreferences("PreferencesSetup");
       // TODO: navigate to next screen or call API
     }, 800);
   };
