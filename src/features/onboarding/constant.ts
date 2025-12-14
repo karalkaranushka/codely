@@ -1,7 +1,7 @@
 export const ONBOARDING_STRINGS = {
-  title: "Stay Updated",
+  title: "Always With You",
   subtitle:
-    "Get the latest updates from your favorite frameworks and libraries in one place",
+    "Stay on track with smart reminders, activity planning, and everyday support.",
   next: "Next",
   skip: "Skip",
 
